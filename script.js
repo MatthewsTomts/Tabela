@@ -194,8 +194,9 @@ function ordemNum() {
     ordem = parseInt(document.getElementById("odd").innerText) * -1
     if (ordem == 2) {
         ordem -= 1
-    } else if (ordem == -2) {
+    } else if (ordem == -2 ) {
         ordem += 1
     }
+    if (ordem == 0) ordem = 1
     montarTabela(ordem)
 }
