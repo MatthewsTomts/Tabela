@@ -7,17 +7,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>SENAI - NOTAS</title>
 </head>
-<body onload="montarTabela(-1)">
-    <table class="table" id="tabela">
-    </table>
-    <button type="button" class="btn btn-secondary btn-lg" onclick="calcular()">Calcular</button>
-    <button class="btn btn-secondary btn-lg" onclick="addLin()">Adicionar linha</button>
-    <button class="btn btn-secondary btn-lg" onclick="addNotas()">Adicionar notas</button><br><br>
-    <button class="btn btn-secondary btn-lg" onclick="delLin()">Remover linha</button>
-    <button class="btn btn-secondary btn-lg" onclick="delNotas()">Remover notas</button><br><br>
-    <button class="btn btn-secondary btn-lg" onclick="ordemAlph()">Ordem Alfabética</button>
-    <button class="btn btn-secondary btn-lg" onclick="ordemNum()">Ordem Crescente/Decrescente</button>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</body>
-<script src="script.js"></script>
+    <body>
+        <div id="space"></div>
+        <button type="button" class="btn btn-secondary btn-lg" id="calc">Calcular</button>
+        <button class="btn btn-secondary btn-lg" id="addLin">Adicionar linha</button>
+        <button class="btn btn-secondary btn-lg" id="addNot">Adicionar notas</button><br><br>
+        <button class="btn btn-secondary btn-lg" onclick="delLin()" id="delLin">Remover linha</button>
+        <button class="btn btn-secondary btn-lg" onclick="delNotas()" id="delNot">Remover notas</button><br><br>
+        <button class="btn btn-secondary btn-lg" onclick="ordemAlph()" id="ordAlph">Ordem Alfabética</button>
+        <button class="btn btn-secondary btn-lg" onclick="ordemNum()" id="ordNum">Ordem Crescente/Decrescente</button>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script type="module" src="main.js"></script>
+    </body>
 </html>
