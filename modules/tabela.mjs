@@ -48,43 +48,39 @@ function montarTabela(ordem) {
 }
 
 function datasLin(ordem) {
-    var nomes = []
-    var notasGeral = []
-
+    var lista = [];
+    
     // A cada loop irá pegar os nomes dos alunos
     for (var i = 0; i < linQtd; i++) {
+        var nome = '';
+        var notas = [];
         // Busca o elemento que armazena os nomes de acordo com o id, que é determinado pela linha
         var eleNome = document.getElementById(`nome${i}`)
         // Verifica se o elemento é undefined, se não for armazena na lista de nomes
         if (eleNome && eleNome.value !== undefined) {
-            nomes.push(eleNome.value)
-        } else {
-            nomes.push('')
+            nome = eleNome.value
         }
 
-        var notas = []
         // A cada loop irá pegar as notas do aluno atual
         for (var j = 0; j < notasQtd; j++) {
             // Busca o elemento que armazena os nomes de acordo com o id, que é determinado pela linha e coluna
-            var eleNotas = document.getElementById(`not${i}${j}`)
+            var eleNota = document.getElementById(`not${i}${j}`)
             // Verifica se o elemento é undefined, se não for armazena na lista de notas
-            if (eleNotas && eleNotas.value !== undefined) {
-                notas.push(eleNotas.value)
+            if (eleNota && eleNota.value !== undefined) {
+                notas.push(eleNota.value)
             } else {
                 notas.push('')
             }
         }
         // Armazena as notas do aluno atual na lista de notas da sala, criando uma matriz
-        notasGeral.push(notas)
+
+        // Cria uma lista que armazenará os dados de cada linha
+        lista.push({'nome': nome, 'nota': notas, 'media': medias[i]});
     }
-    return ordernar(nomes, notasGeral, ordem)
+    return ordernar(lista, ordem)
 }
 
-function ordernar(nomes, notasGeral, ordem) {
-    // Cria uma lista que armazenará os dados de cada linha
-    var lista = [];
-    for (var j = 0; j < nomes.length; j++) 
-        lista.push({'nome': nomes[j], 'nota': notasGeral[j], 'media': medias[j]});
+function ordernar(lista, ordem) {
     // Utilizando a lista criada organizará as notas de acordo com os nomes, 
     // que serão ordenados em ordem alfabética
     // se ordem for == 2, se não se for diferente de 0 e igual a -1, é descrescente
@@ -99,12 +95,16 @@ function ordernar(nomes, notasGeral, ordem) {
         });
     }
 
+    var nomes = [];
+    var notasGeral = [];
+    var medias = [];
     // Utilizando a lista das linhas, irá atualizar as listas de nome, notas da sala e medias
     for (var k = 0; k < lista.length; k++) {
         nomes[k] = lista[k].nome;
         notasGeral[k] = lista[k].nota;
         medias[k] = lista[k].media;
     }
+    setMedias(medias) // Redefinide a ordem das medias
     return [nomes, notasGeral]
 }
 
